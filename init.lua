@@ -32,3 +32,7 @@ require('nvim-treesitter.configs').setup {
         additional_vim_regex_highlighting = false
     },
 }
+
+require('lsp/setup')
+
+require('lsp/nvim-cmp')
