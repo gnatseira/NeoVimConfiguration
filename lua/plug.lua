@@ -29,8 +29,8 @@ end
 
 return require('packer').startup(function(use)
     -- [[ Plugin Go Here ]] 
-    use {'lewis6991/impatient.nvim'}
     use {'wbthomason/packer.nvim'}
+    use {'lewis6991/impatient.nvim'}
     use {                                              -- filesystem navigation
         'kyazdani42/nvim-tree.lua',
         requires = {'kyazdani42/nvim-web-devicons',        -- filesystem icons
