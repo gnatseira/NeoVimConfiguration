@@ -28,7 +28,7 @@ if not packer_exists then
 end
 
 return require('packer').startup(function(use)
-    -- [[ Plugin Go Here ]] 
+    -- [[ Plugin Go Here ]]
     use {'wbthomason/packer.nvim'}
     use {'lewis6991/impatient.nvim'}
     use {                                              -- filesystem navigation
@@ -87,5 +87,7 @@ return require('packer').startup(function(use)
     use 'rafamadriz/friendly-snippets'
     -- lspkind
     use 'onsails/lspkind-nvim'
+
+    use({ "akinsho/bufferline.nvim", event = "VimEnter", config = [[require('config.bufferline')]] })
 
 end)
