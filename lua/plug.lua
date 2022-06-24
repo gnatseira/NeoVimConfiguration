@@ -34,7 +34,9 @@ return require('packer').startup(function(use)
     use {                                              -- filesystem navigation
         'kyazdani42/nvim-tree.lua',
         requires = {'kyazdani42/nvim-web-devicons',        -- filesystem icons
-                    opt = true}
+                    opt = true},
+        cmd = {"NvimTreeToggle"},
+        config = [[require('config.nvim-tree')]]
     }
 
     -- [[ Theme ]]
@@ -47,7 +49,9 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',                     -- statusline
         requires = {'kyazdani42/nvim-web-devicons',
-                    opt = true}
+                    opt = true},
+        event = 'VimEnter',
+        config = [[require('config.lualine')]]
     }
     use { 'Mofiqul/dracula.nvim' }
 
@@ -69,7 +73,9 @@ return require('packer').startup(function(use)
     use {'tpope/vim-commentary'}
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        event = 'BufEnter',
+        run = ':TSUpdate',
+        config = [[require('config.treesitter')]]
     }
 
     -- lspconfig
