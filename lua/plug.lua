@@ -41,9 +41,8 @@ return require('packer').startup(function(use)
     --use {'mhinz/vim-startify'}
     use {
         'goolord/alpha-nvim',
-        config = function ()
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
-        end
+        event = 'VimEnter',
+        config = [[require('config.alpha-nvim')]]
     }
     use {
         'nvim-lualine/lualine.nvim',                     -- statusline
