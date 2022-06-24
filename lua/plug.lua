@@ -38,7 +38,13 @@ return require('packer').startup(function(use)
     }
 
     -- [[ Theme ]]
-    use {'mhinz/vim-startify'}
+    --use {'mhinz/vim-startify'}
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
     use {
         'nvim-lualine/lualine.nvim',                     -- statusline
         requires = {'kyazdani42/nvim-web-devicons',
