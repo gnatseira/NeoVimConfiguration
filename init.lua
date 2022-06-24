@@ -14,8 +14,6 @@ require('plug')     -- Plugins
 -- PLUGINS: Add this section
 require('impatient')
 
-require('nvim-autopairs').setup{}
-
 require('lsp/setup')
 
 require('lsp/nvim-cmp')

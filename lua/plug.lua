@@ -66,6 +66,7 @@ return require('packer').startup(function(use)
     use { 'junegunn/gv.vim' }
     use {
         "windwp/nvim-autopairs",
+        event = "VimEnter",
         config = function() require("nvim-autopairs").setup {} end
     }
 
@@ -94,6 +95,10 @@ return require('packer').startup(function(use)
     -- lspkind
     use 'onsails/lspkind-nvim'
 
-    use({ "akinsho/bufferline.nvim", event = "VimEnter", config = [[require('config.bufferline')]] })
+    use({
+        "akinsho/bufferline.nvim",
+        event = "VimEnter",
+        config = [[require('config.bufferline')]]
+    })
 
 end)
