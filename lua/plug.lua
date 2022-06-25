@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
     use { 'junegunn/gv.vim' }
     use {
         "windwp/nvim-autopairs",
-        event = "VimEnter",
+        event = "BufEnter",
         config = function() require("nvim-autopairs").setup {} end
     }
 
