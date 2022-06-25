@@ -12,6 +12,4 @@ require('keys')     -- Keymaps
 require('plug')     -- Plugins
 
 -- PLUGINS: Add this section
-require('lsp/setup')
-
-require('lsp/nvim-cmp')
+--require('lsp/setup')

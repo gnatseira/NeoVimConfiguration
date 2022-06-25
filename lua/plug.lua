@@ -81,19 +81,23 @@ return require('packer').startup(function(use)
 
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+    -- lspkind
+    use {'onsails/lspkind-nvim', event = "VimEnter"}
 
     -- nvim-cmp
-    use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-    use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
-    use 'hrsh7th/cmp-path'     -- { name = 'path' }
-    use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
-    use 'hrsh7th/nvim-cmp'
+    use {
+        'hrsh7th/nvim-cmp',
+        after = "lspkind-nvim",
+        config = [[require('config.nvim-cmp')]]
+    }
+    use {'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"} -- { name = nvim_lsp }
+    use {'hrsh7th/cmp-buffer', after = "nvim-cmp"}   -- { name = 'buffer' },
+    use {'hrsh7th/cmp-path', after = "nvim-cmp"}     -- { name = 'path' }
+    use {'hrsh7th/cmp-cmdline', after = "nvim-cmp"}  -- { name = 'cmdline' }
     -- vsnip
-    use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
-    use 'hrsh7th/vim-vsnip'
-    use 'rafamadriz/friendly-snippets'
-    -- lspkind
-    use 'onsails/lspkind-nvim'
+    use {'hrsh7th/cmp-vsnip', after = "nvim-cmp"}    -- { name = 'vsnip' }
+    use {'hrsh7th/vim-vsnip', after = "nvim-cmp"}
+    use {'rafamadriz/friendly-snippets', after = "nvim-cmp"}
 
     use({
         "akinsho/bufferline.nvim",
