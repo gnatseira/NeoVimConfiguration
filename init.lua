@@ -12,8 +12,6 @@ require('keys')     -- Keymaps
 require('plug')     -- Plugins
 
 -- PLUGINS: Add this section
-require('impatient')
-
 require('lsp/setup')
 
 require('lsp/nvim-cmp')
