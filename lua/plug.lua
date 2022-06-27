@@ -106,5 +106,6 @@ return require('packer').startup(function(use)
         event = "VimEnter",
         config = [[require('config.bufferline')]]
     })
+    require('config/lsp')
 
 end)
