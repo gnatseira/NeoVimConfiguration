@@ -11,5 +11,4 @@ require('opts')     -- Options
 require('keys')     -- Keymaps
 require('plug')     -- Plugins
 
--- PLUGINS: Add this section
---require('lsp/setup')
+require('config/lsp')

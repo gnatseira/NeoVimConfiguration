@@ -81,6 +81,8 @@ return require('packer').startup(function(use)
 
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+    --use{'williamboman/nvim-lsp-installer'}
+    --use {'neovim/nvim-lspconfig', event = "VimEnter", config = [[require('config.lsp')]]}
     -- lspkind
     use {'onsails/lspkind-nvim', event = "VimEnter"}
 
