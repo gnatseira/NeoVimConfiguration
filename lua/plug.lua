@@ -80,9 +80,8 @@ return require('packer').startup(function(use)
     }
 
     -- lspconfig
-    use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
-    --use{'williamboman/nvim-lsp-installer'}
-    --use {'neovim/nvim-lspconfig', event = "VimEnter", config = [[require('config.lsp')]]}
+    use {'neovim/nvim-lspconfig', opt = true, event = "BufReadPre", config = [[require('config.lsp')]]}
+    use{'williamboman/nvim-lsp-installer', opt = false}
     -- lspkind
     use {'onsails/lspkind-nvim', event = "VimEnter"}
 
@@ -101,11 +100,11 @@ return require('packer').startup(function(use)
     use {'hrsh7th/vim-vsnip', after = "nvim-cmp"}
     use {'rafamadriz/friendly-snippets', after = "nvim-cmp"}
 
+
     use({
         "akinsho/bufferline.nvim",
         event = "VimEnter",
         config = [[require('config.bufferline')]]
     })
-    require('config/lsp')
 
 end)
