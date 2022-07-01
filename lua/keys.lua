@@ -7,5 +7,6 @@ map('n', '<C-n>', [[:NvimTreeToggle]], {})
 
 map('n', 't', [[:TagbarToggle]], {})
 map('n', 'ff', [[:Telescope find_files]], {})
+map('n', 'fr', [[:Telescope oldfiles]], {})
 map('n', '<C-o>', [[:BufferLineCycleNext<CR>]], {})
 map('n', '<C-p>', [[:BufferLineCyclePrev<CR>]], {})
