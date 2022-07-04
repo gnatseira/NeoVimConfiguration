@@ -1,8 +1,6 @@
 -- [[ vars.lua ]]
 
 local g = vim.g
-g.t_co = 256
-g.backgroud = dark
 
 -- Update the packpath
 local packer_path = vim.fn.stdpath('config') .. '/site'
