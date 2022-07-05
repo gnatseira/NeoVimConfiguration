@@ -1,4 +1,6 @@
 -- [[ keys.lua ]]
+vim.g.mapleader = ';'
+
 local map = vim.api.nvim_set_keymap
 local opt = {
     noremap = true,
@@ -9,7 +11,7 @@ local opt = {
 map('i', 'jk', '<ESC>', opt)
 
 -- shorcut for exit without save
-map('n', 'qq', [[:q!<CR>]], opt)
+map('n', '<leader>qq', [[:q!<CR>]], opt)
 
 -- Toggle nvim-tree
 map('n', '<C-n>', [[:NvimTreeToggle<CR>]], opt)
@@ -19,8 +21,8 @@ map('n', '<C-h>', '<C-w>h', opt)
 map('n', 't', [[:TagbarToggle<CR>]], opt)
 
 -- telescope
-map('n', 'ff', [[:Telescope find_files<CR>]], opt)
-map('n', 'fr', [[:Telescope oldfiles<CR>]], opt)
+map('n', '<leader>ff', [[:Telescope find_files<CR>]], opt)
+map('n', '<leader>fr', [[:Telescope oldfiles<CR>]], opt)
 
 -- bufferline
 map('n', '<C-o>', [[:BufferLineCycleNext<CR>]], opt)
