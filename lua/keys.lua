@@ -6,7 +6,8 @@ local opt = {
 }
 
 -- remap the key used to leave insert mode
---
+map('i', 'jk', '<ESC>', opt)
+
 -- Toggle nvim-tree
 map('n', '<C-n>', [[:NvimTreeToggle<CR>]], opt)
 map('n', '<C-h>', '<C-w>h', opt)
