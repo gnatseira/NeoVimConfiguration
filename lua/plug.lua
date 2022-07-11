@@ -81,7 +81,7 @@ return require('packer').startup(function(use)
 
     -- lspconfig
     use {'neovim/nvim-lspconfig', opt = true, event = "BufReadPre", config = [[require('config.lsp')]]}
-    use{'williamboman/nvim-lsp-installer', opt = false}
+    use {'williamboman/nvim-lsp-installer', opt = false}
     -- lspkind
     use {'onsails/lspkind-nvim', event = "VimEnter"}
 
@@ -100,11 +100,18 @@ return require('packer').startup(function(use)
     use {'hrsh7th/vim-vsnip', after = "nvim-cmp"}
     use {'rafamadriz/friendly-snippets', after = "nvim-cmp"}
 
-
-    use({
-        "akinsho/bufferline.nvim",
+    -- bufferline
+    use {
+        'akinsho/bufferline.nvim',
         event = "VimEnter",
         config = [[require('config.bufferline')]]
-    })
+    }
+
+    -- indent blankline
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        event = 'BufReadPost',
+        config = [[require('config.indent-blankline')]]
+    }
 
 end)
