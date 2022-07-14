@@ -29,3 +29,9 @@ map('n', '<C-o>', [[:BufferLineCycleNext<CR>]], opt)
 map('n', '<C-p>', [[:BufferLineCyclePrev<CR>]], opt)
 map('n', '<C-a>', [[:BufferLinePickClose<CR>]], opt)
 map('n', '<C-s>', [[:BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>]], opt)
+
+-- packer
+map('n', '<leader>ps', [[:PackerSync<CR>]], opt);
+map('n', '<leader>pu', [[:PackerUpdate<CR>]], opt);
+map('n', '<leader>pi', [[:PackerInstall<CR>]], opt);
+map('n', '<leader>pc', [[:PackerClean<CR>]], opt);
