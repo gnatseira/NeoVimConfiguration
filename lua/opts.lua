@@ -29,3 +29,6 @@ opt.tabstop = 4
 -- [[ Split ]]
 opt.splitright = true
 opt.splitbelow = true
+
+-- [[ Which-key ]]
+opt.timeoutlen = 500

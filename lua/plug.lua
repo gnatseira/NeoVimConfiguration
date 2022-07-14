@@ -114,4 +114,10 @@ return require('packer').startup(function(use)
         config = [[require('config.indent-blankline')]]
     }
 
+    -- which-key
+    use {
+        'folke/which-key.nvim',
+        config = [[require('config.which-key')]]
+    }
+
 end)
