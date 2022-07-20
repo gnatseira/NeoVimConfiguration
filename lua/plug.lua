@@ -120,4 +120,13 @@ return require('packer').startup(function(use)
         config = [[require('config.which-key')]]
     }
 
+    use {
+        'rcarriga/nvim-notify',
+        --event = 'BufEnter',
+        --config = function()
+            --vim.defer_fn(function() require('config.nvim-notify') end, 2000)
+        --end
+        config = [[require('config.nvim-notify')]]
+    }
+
 end)
