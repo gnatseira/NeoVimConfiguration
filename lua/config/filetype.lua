@@ -1,0 +1,3 @@
+require('filetype').setup({
+
+})
