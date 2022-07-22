@@ -126,6 +126,6 @@ return require('packer').startup(function(use)
     }
 
     -- start time
-    use {'dstein64/vim-startuptime', opt = true, cmd = 'StartTime'}
+    use {'dstein64/vim-startuptime', opt = true, cmd = 'StartupTime'}
 
 end)
