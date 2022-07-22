@@ -43,14 +43,13 @@ return require('packer').startup(function(use)
     --use {'mhinz/vim-startify'}
     use {
         'goolord/alpha-nvim',
-        event = 'VimEnter',
+        event = 'BufWinEnter',
         config = [[require('config.alpha-nvim')]]
     }
     use {
         'nvim-lualine/lualine.nvim',                     -- statusline
         requires = {'kyazdani42/nvim-web-devicons',
                     opt = true},
-        event = 'VimEnter',
         config = [[require('config.lualine')]]
     }
     use { 'Mofiqul/dracula.nvim' }
@@ -83,7 +82,7 @@ return require('packer').startup(function(use)
     use {'neovim/nvim-lspconfig', opt = true, event = 'BufReadPre', config = [[require('config.lsp')]]}
     use {'williamboman/nvim-lsp-installer', opt = false}
     -- lspkind
-    use {'onsails/lspkind-nvim', event = 'VimEnter'}
+    use {'onsails/lspkind-nvim', after = 'nvim-lspconfig'}
 
     -- nvim-cmp
     use {
@@ -103,7 +102,7 @@ return require('packer').startup(function(use)
     -- bufferline
     use {
         'akinsho/bufferline.nvim',
-        event = 'VimEnter',
+        event = 'BufReadPost',
         config = [[require('config.bufferline')]]
     }
 
@@ -125,5 +124,8 @@ return require('packer').startup(function(use)
         'rcarriga/nvim-notify',
         config = [[require('config.nvim-notify')]]
     }
+
+    -- start time
+    use {'dstein64/vim-startuptime', opt = true, cmd = 'StartTime'}
 
 end)
