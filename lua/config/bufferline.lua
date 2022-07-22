@@ -22,5 +22,8 @@ require("bufferline").setup({
                 padding = 1,
             },
         },
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            return "(" .. count .. ")"
+        end,
     },
 })
