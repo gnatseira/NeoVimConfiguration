@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = {'kyazdani42/nvim-web-devicons',        -- filesystem icons
                     opt = true},
-        cmd = {"NvimTreeToggle"},
+        cmd = {'NvimTreeToggle'},
         config = [[require('config.nvim-tree')]]
     }
 
@@ -65,9 +65,9 @@ return require('packer').startup(function(use)
     use { 'tpope/vim-fugitive' }
     use { 'junegunn/gv.vim' }
     use {
-        "windwp/nvim-autopairs",
-        event = "BufEnter",
-        config = function() require("nvim-autopairs").setup {} end
+        'windwp/nvim-autopairs',
+        event = 'BufEnter',
+        config = function() require('nvim-autopairs').setup {} end
     }
 
     use {'voldikss/vim-floaterm'}
@@ -80,30 +80,30 @@ return require('packer').startup(function(use)
     }
 
     -- lspconfig
-    use {'neovim/nvim-lspconfig', opt = true, event = "BufReadPre", config = [[require('config.lsp')]]}
+    use {'neovim/nvim-lspconfig', opt = true, event = 'BufReadPre', config = [[require('config.lsp')]]}
     use {'williamboman/nvim-lsp-installer', opt = false}
     -- lspkind
-    use {'onsails/lspkind-nvim', event = "VimEnter"}
+    use {'onsails/lspkind-nvim', event = 'VimEnter'}
 
     -- nvim-cmp
     use {
         'hrsh7th/nvim-cmp',
-        after = "lspkind-nvim",
+        after = 'lspkind-nvim',
         config = [[require('config.nvim-cmp')]]
     }
-    use {'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"} -- { name = nvim_lsp }
-    use {'hrsh7th/cmp-buffer', after = "nvim-cmp"}   -- { name = 'buffer' },
-    use {'hrsh7th/cmp-path', after = "nvim-cmp"}     -- { name = 'path' }
-    use {'hrsh7th/cmp-cmdline', after = "nvim-cmp"}  -- { name = 'cmdline' }
+    use {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'} -- { name = nvim_lsp }
+    use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'}   -- { name = 'buffer' },
+    use {'hrsh7th/cmp-path', after = 'nvim-cmp'}     -- { name = 'path' }
+    use {'hrsh7th/cmp-cmdline', after = 'nvim-cmp'}  -- { name = 'cmdline' }
     -- vsnip
-    use {'hrsh7th/cmp-vsnip', after = "nvim-cmp"}    -- { name = 'vsnip' }
-    use {'hrsh7th/vim-vsnip', after = "nvim-cmp"}
-    use {'rafamadriz/friendly-snippets', after = "nvim-cmp"}
+    use {'hrsh7th/cmp-vsnip', after = 'nvim-cmp'}    -- { name = 'vsnip' }
+    use {'hrsh7th/vim-vsnip', after = 'nvim-cmp'}
+    use {'rafamadriz/friendly-snippets', after = 'nvim-cmp'}
 
     -- bufferline
     use {
         'akinsho/bufferline.nvim',
-        event = "VimEnter",
+        event = 'VimEnter',
         config = [[require('config.bufferline')]]
     }
 
@@ -120,12 +120,9 @@ return require('packer').startup(function(use)
         config = [[require('config.which-key')]]
     }
 
+    -- nvim-notify
     use {
         'rcarriga/nvim-notify',
-        --event = 'BufEnter',
-        --config = function()
-            --vim.defer_fn(function() require('config.nvim-notify') end, 2000)
-        --end
         config = [[require('config.nvim-notify')]]
     }
 
