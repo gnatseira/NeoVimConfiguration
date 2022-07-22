@@ -29,7 +29,6 @@ end
 
 return require('packer').startup(function(use)
     -- [[ Plugin Go Here ]]
-    use {'lewis6991/impatient.nvim', config = [[require('impatient')]]}
     use {'wbthomason/packer.nvim'}
     use {                                              -- filesystem navigation
         'kyazdani42/nvim-tree.lua',
@@ -65,7 +64,7 @@ return require('packer').startup(function(use)
     use { 'junegunn/gv.vim' }
     use {
         'windwp/nvim-autopairs',
-        event = 'BufEnter',
+        after = 'nvim-cmp',
         config = function() require('nvim-autopairs').setup {} end
     }
 
@@ -73,7 +72,7 @@ return require('packer').startup(function(use)
     use {'tpope/vim-commentary'}
     use {
         'nvim-treesitter/nvim-treesitter',
-        event = 'BufEnter',
+        event = 'BufReadPost',
         run = ':TSUpdate',
         config = [[require('config.treesitter')]]
     }
@@ -116,6 +115,8 @@ return require('packer').startup(function(use)
     -- which-key
     use {
         'folke/which-key.nvim',
+        opt = true,
+        keys = ',',
         config = [[require('config.which-key')]]
     }
 
