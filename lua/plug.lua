@@ -101,6 +101,7 @@ return require('packer').startup(function(use)
     -- bufferline
     use {
         'akinsho/bufferline.nvim',
+        tag = '*',
         event = 'BufReadPost',
         config = [[require('config.bufferline')]]
     }
