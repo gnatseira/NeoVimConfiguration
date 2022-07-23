@@ -78,7 +78,12 @@ return require('packer').startup(function(use)
     }
 
     -- lspconfig
-    use {'neovim/nvim-lspconfig', opt = true, event = 'BufReadPre', config = [[require('config.lsp')]]}
+    use {
+        'neovim/nvim-lspconfig',
+        opt = true,
+        event = 'BufReadPre',
+        config = [[require('config.lsp')]]
+    }
     use {'williamboman/nvim-lsp-installer', opt = false}
     -- lspkind
     use {'onsails/lspkind-nvim', after = 'nvim-lspconfig'}
