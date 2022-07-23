@@ -51,7 +51,14 @@ return require('packer').startup(function(use)
                     opt = true},
         config = [[require('config.lualine')]]
     }
-    use { 'Mofiqul/dracula.nvim' }
+    --use { 'Mofiqul/dracula.nvim' }
+    use {
+        'catppuccin/nvim',
+        opt = false,
+        as = 'catppuccin',
+        commit = "f079dda3dc23450d69b4bad11bfbd9af2c77f6f3",
+        config = [[require('config.catppuccin')]]
+    }
 
     -- [[ Dev ]]
     use {
