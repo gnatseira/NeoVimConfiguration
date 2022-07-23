@@ -18,7 +18,7 @@ map('n', '<C-n>', [[:NvimTreeToggle<CR>]], opt)
 map('n', '<C-h>', '<C-w>h', opt)
 
 -- tagbar
-map('n', 't', [[:TagbarToggle<CR>]], opt)
+map('n', '<leader>tt', [[:TagbarToggle<CR>]], opt)
 
 -- telescope
 map('n', '<leader>ff', [[:Telescope find_files<CR>]], opt)
@@ -35,3 +35,8 @@ map('n', '<leader>ps', [[:PackerSync<CR>]], opt);
 map('n', '<leader>pu', [[:PackerUpdate<CR>]], opt);
 map('n', '<leader>pi', [[:PackerInstall<CR>]], opt);
 map('n', '<leader>pc', [[:PackerClean<CR>]], opt);
+
+-- toggleterm
+map('n', '<leader>tf', [[:ToggleTerm direction=float<CR>]], opt);
+map('n', '<leader>tv', [[:ToggleTerm direction=vertical<CR>]], opt);
+map('n', '<leader>th', [[:ToggleTerm direction=horizontal<CR>]], opt);

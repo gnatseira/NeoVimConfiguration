@@ -68,6 +68,12 @@ return require('packer').startup(function(use)
         config = function() require('nvim-autopairs').setup {} end
     }
 
+    use {
+        'akinsho/toggleterm.nvim',
+        opt = true,
+        event = 'BufReadPost',
+        config = [[require('config.toggleterm')]]
+    }
     use {'numToStr/FTerm.nvim', opt = true, event = "BufReadPost"}
     use {'tpope/vim-commentary'}
     use {
