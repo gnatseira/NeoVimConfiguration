@@ -68,7 +68,7 @@ return require('packer').startup(function(use)
         config = function() require('nvim-autopairs').setup {} end
     }
 
-    use {'voldikss/vim-floaterm'}
+    use {'numToStr/FTerm.nvim', opt = true, event = "BufReadPost"}
     use {'tpope/vim-commentary'}
     use {
         'nvim-treesitter/nvim-treesitter',
