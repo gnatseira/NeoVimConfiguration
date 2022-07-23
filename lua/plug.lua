@@ -56,7 +56,37 @@ return require('packer').startup(function(use)
     -- [[ Dev ]]
     use {
         'nvim-telescope/telescope.nvim',                 -- fuzzy finder
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = {
+            {'nvim-lua/plenary.nvim', opt = false},
+            {'nvim-lua/popup.nvim', opt = true},
+        },
+        config = [[require('config.telescope')]]
+    }
+
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        opt = true,
+        run = 'make',
+        after = 'telescope.nvim',
+    }
+
+    use {
+        'nvim-telescope/telescope-project.nvim',
+        opt = true,
+        after = 'telescope-fzf-native.nvim',
+    }
+
+    use {
+        'nvim-telescope/telescope-frecency.nvim',
+        opt = true,
+        after = 'telescope-project.nvim',
+        requires = { { "tami5/sqlite.lua", opt = true } },
+    }
+
+    use {
+        'jvgrootveld/telescope-zoxide',
+        opt = true,
+        after = 'telescope-frecency.nvim',
     }
 
     use { 'majutsushi/tagbar' }

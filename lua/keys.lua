@@ -22,7 +22,14 @@ map('n', '<leader>tt', [[:TagbarToggle<CR>]], opt)
 
 -- telescope
 map('n', '<leader>ff', [[:Telescope find_files<CR>]], opt)
-map('n', '<leader>fr', [[:Telescope oldfiles<CR>]], opt)
+map('n', '<leader>fo', [[:Telescope oldfiles<CR>]], opt)
+map('n', '<leader>fw', [[:Telescope live_grep<CR>]], opt)
+map('n', '<leader>fg', [[:Telescope git_files<CR>]], opt)
+map('n', '<leader>fz', [[:Telescope zoxide list<CR>]], opt)
+map('n', '<leader>fp', [[:Telescope project<CR>]], opt)
+map('n', '<leader>fr', [[:Telescope frecency<CR>]], opt)
+map('n', '<leader>fc', [[:Telescope colorscheme<CR>]], opt)
+map('n', '<leader>fn', [[:enew<CR>]], opt)
 
 -- bufferline
 map('n', '<C-o>', [[:BufferLineCycleNext<CR>]], opt)
