@@ -38,23 +38,18 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
     if server.name == 'clangd' then
         nvim_lsp.clangd.setup({
             on_attach = custom_attach,
-            settings = {
-                {
-                    filetypes = { "c", "cpp", "cc" },
-                }
-            }
+            args = {
+                '--background-index',
+                '--std=c++20',
+                '--clang-tidy',
+                '--suggest-missing-includes',
+            },
         })
     elseif server.name == 'sumneko_lua' then
         nvim_lsp.sumneko_lua.setup({
             on_attach = custom_attach,
             settings = {
                 Lua = {
-                    runtime = {
-                        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                        version = 'LuaJIT',
-                        -- Setup your lua path
-                        path = runtime_path,
-                    },
                     diagnostics = {
                         -- Get the language server to recognize the `vim` global
                         globals = {'vim'},
