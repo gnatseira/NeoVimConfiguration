@@ -99,11 +99,6 @@ return require('packer').startup(function(use)
     use { 'majutsushi/tagbar' }
     use { 'tpope/vim-fugitive' }
     use { 'junegunn/gv.vim' }
-    use {
-        'windwp/nvim-autopairs',
-        after = 'nvim-cmp',
-        config = function() require('nvim-autopairs').setup {} end
-    }
 
     use {
         'akinsho/toggleterm.nvim',
@@ -112,7 +107,7 @@ return require('packer').startup(function(use)
         config = [[require('config.toggleterm')]]
     }
     use {'numToStr/FTerm.nvim', opt = true, event = "BufReadPost"}
-    use {'tpope/vim-commentary'}
+    use {'tpope/vim-commentary', event = 'BufWinEnter'}
 
     -- nvim-treesitter
     use {
@@ -174,6 +169,12 @@ return require('packer').startup(function(use)
     use {'hrsh7th/cmp-vsnip', after = 'nvim-cmp'}    -- { name = 'vsnip' }
     use {'hrsh7th/vim-vsnip', after = 'nvim-cmp'}
     use {'rafamadriz/friendly-snippets', after = 'nvim-cmp'}
+
+    use {
+        'windwp/nvim-autopairs',
+        after = 'nvim-cmp',
+        config = function() require('nvim-autopairs').setup {} end
+    }
 
     -- bufferline
     use {
