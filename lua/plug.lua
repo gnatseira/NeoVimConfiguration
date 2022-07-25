@@ -30,10 +30,9 @@ end
 return require('packer').startup(function(use)
     -- [[ Plugin Go Here ]]
     use {'wbthomason/packer.nvim'}
+    use {'kyazdani42/nvim-web-devicons', opt = false}
     use {                                              -- filesystem navigation
         'kyazdani42/nvim-tree.lua',
-        requires = {'kyazdani42/nvim-web-devicons',        -- filesystem icons
-                    opt = true},
         cmd = {'NvimTreeToggle'},
         config = [[require('config.nvim-tree')]]
     }
@@ -47,8 +46,6 @@ return require('packer').startup(function(use)
     }
     use {
         'nvim-lualine/lualine.nvim',                     -- statusline
-        requires = {'kyazdani42/nvim-web-devicons',
-                    opt = true},
         config = [[require('config.lualine')]]
     }
     --use { 'Mofiqul/dracula.nvim' }
@@ -63,11 +60,12 @@ return require('packer').startup(function(use)
     -- [[ Dev ]]
     use {
         'nvim-telescope/telescope.nvim',                 -- fuzzy finder
+        config = [[require('config.telescope')]],
         requires = {
             {'nvim-lua/plenary.nvim', opt = false},
             {'nvim-lua/popup.nvim', opt = true},
         },
-        config = [[require('config.telescope')]]
+
     }
 
     use {
