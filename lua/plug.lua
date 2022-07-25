@@ -38,7 +38,6 @@ return require('packer').startup(function(use)
     }
 
     -- [[ Theme ]]
-    --use {'mhinz/vim-startify'}
     use {
         'goolord/alpha-nvim',
         event = 'BufWinEnter',
@@ -94,9 +93,8 @@ return require('packer').startup(function(use)
         after = 'telescope-frecency.nvim',
     }
 
-    use { 'majutsushi/tagbar' }
+    use { 'simrat39/symbols-outline.nvim' }
     use { 'tpope/vim-fugitive' }
-    use { 'junegunn/gv.vim' }
 
     use {
         'akinsho/toggleterm.nvim',
@@ -200,6 +198,7 @@ return require('packer').startup(function(use)
     -- nvim-notify
     use {
         'rcarriga/nvim-notify',
+        opt = false,
         config = [[require('config.nvim-notify')]]
     }
 
@@ -209,6 +208,7 @@ return require('packer').startup(function(use)
     -- filetype
     use {
         'nathom/filetype.nvim',
+        opt = false,
         config = [[require('config.filetype')]]
     }
 

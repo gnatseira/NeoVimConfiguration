@@ -18,7 +18,7 @@ map('n', '<C-n>', [[:NvimTreeToggle<CR>]], opt)
 map('n', '<C-h>', '<C-w>h', opt)
 
 -- tagbar
-map('n', '<leader>tt', [[:TagbarToggle<CR>]], opt)
+map('n', '<leader>tt', [[:SymbolsOutline<CR>]], opt)
 
 -- telescope
 map('n', '<leader>ff', [[:Telescope find_files<CR>]], opt)
