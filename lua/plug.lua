@@ -27,7 +27,7 @@ if not packer_exists then
 	return
 end
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
     -- [[ Plugin Go Here ]]
     use {'wbthomason/packer.nvim'}
     use {'kyazdani42/nvim-web-devicons', opt = false}
@@ -212,4 +212,10 @@ return require('packer').startup(function(use)
         config = [[require('config.filetype')]]
     }
 
-end)
+end,
+config = {
+    display = {
+        open_fn = require('packer.util').float,
+    },
+}
+})
