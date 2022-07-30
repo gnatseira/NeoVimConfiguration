@@ -212,6 +212,13 @@ return require('packer').startup({function(use)
         config = [[require('config.filetype')]]
     }
 
+    -- diffview
+    use {
+        'sindrets/diffview.nvim',
+        opt = true,
+        cmd = { "DiffviewOpen" },
+    }
+
 end,
 config = {
     display = {

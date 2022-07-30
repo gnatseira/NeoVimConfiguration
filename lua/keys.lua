@@ -47,3 +47,7 @@ map('n', '<leader>pc', [[:PackerClean<CR>]], opt);
 map('n', '<leader>tf', [[:ToggleTerm direction=float<CR>]], opt);
 map('n', '<leader>tv', [[:ToggleTerm direction=vertical<CR>]], opt);
 map('n', '<leader>th', [[:ToggleTerm direction=horizontal<CR>]], opt);
+
+-- diffview
+map('n', '<leader>do', [[:DiffviewOpen<CR>]], opt)
+map('n', '<leader>dc', [[:DiffviewClose<CR>]], opt)
