@@ -1,6 +1,6 @@
 local fn = vim.fn
 local M = {}
-function M.executable(name) 
+function M.executable(name)
     if fn.executable(name) > 0 then
         return true
     end
@@ -24,7 +24,7 @@ local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup({
     ensure_installed = {
         'clangd',
-        'sumneko_lua',
+        'lua_ls',
         'pylsp',
     }
 })
@@ -71,7 +71,7 @@ if M.executable('clangd') then
             '--suggest-missing-includes',
         },
     })
-else 
+else
     vim.notify('clangd not found', vim.log.levels.WARN, {title = 'Nvim-config'})
 end
 
