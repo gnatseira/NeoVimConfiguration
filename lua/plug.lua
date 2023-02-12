@@ -99,16 +99,16 @@ return require('packer').startup({function(use)
     use {
         'akinsho/toggleterm.nvim',
         opt = true,
-        event = 'BufReadPost',
+        event = 'VimEnter',
         config = [[require('config.toggleterm')]]
     }
-    use {'numToStr/FTerm.nvim', opt = true, event = "BufReadPost"}
+    use {'numToStr/FTerm.nvim', opt = true, event = "VimEnter"}
     use {'tpope/vim-commentary', event = 'BufWinEnter'}
 
     -- nvim-treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
-        event = 'BufReadPost',
+        event = 'BufEnter',
         run = ':TSUpdate',
         config = [[require('config.treesitter')]]
     }
@@ -119,7 +119,6 @@ return require('packer').startup({function(use)
         'p00f/nvim-ts-rainbow',
         opt = true,
         after = 'nvim-treesitter',
-        event = 'BufReadPost',
     }
 
     use {'JoosepAlviste/nvim-ts-context-commentstring', opt = true, after = 'nvim-treesitter'}
@@ -140,14 +139,17 @@ return require('packer').startup({function(use)
         config = [[require('config.autotag')]]
     }
 
+    -- mason
+    use {'williamboman/mason.nvim'}
+    use {'williamboman/mason-lspconfig.nvim'}
+
     -- lspconfig
     use {
         'neovim/nvim-lspconfig',
         opt = true,
-        event = 'BufReadPre',
+        event = 'BufEnter',
         config = [[require('config.lsp')]]
     }
-    use {'williamboman/nvim-lsp-installer', opt = false}
     -- lspkind
     use {'onsails/lspkind-nvim', after = 'nvim-lspconfig'}
 
@@ -176,14 +178,14 @@ return require('packer').startup({function(use)
     use {
         'akinsho/bufferline.nvim',
         tag = '*',
-        event = 'BufReadPost',
+        event = 'VimEnter',
         config = [[require('config.bufferline')]]
     }
 
     -- indent blankline
     use {
         'lukas-reineke/indent-blankline.nvim',
-        event = 'BufReadPost',
+        event = 'VimEnter',
         config = [[require('config.indent-blankline')]]
     }
 

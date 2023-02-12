@@ -1,6 +1,33 @@
+local fn = vim.fn
+local M = {}
+function M.executable(name) 
+    if fn.executable(name) > 0 then
+        return true
+    end
+
+    return false
+end
+
 local nvim_lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
-lsp_installer.setup({})
+local mason = require('mason')
+mason.setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    },
+})
+
+local mason_lspconfig = require('mason-lspconfig')
+mason_lspconfig.setup({
+    ensure_installed = {
+        'clangd',
+        'sumneko_lua',
+        'pylsp',
+    }
+})
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -34,44 +61,51 @@ local custom_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-for _, server in ipairs(lsp_installer.get_installed_servers()) do
-    if server.name == 'clangd' then
-        nvim_lsp.clangd.setup({
-            on_attach = custom_attach,
-            args = {
-                '--background-index',
-                '--std=c++20',
-                '--clang-tidy',
-                '--suggest-missing-includes',
-            },
-        })
-    elseif server.name == 'sumneko_lua' then
-        nvim_lsp.sumneko_lua.setup({
-            on_attach = custom_attach,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        -- Get the language server to recognize the `vim` global
-                        globals = {'vim'},
-                    },
-                    workspace = {
-                        -- Make the server aware of Neovim runtime files
-                        library = vim.api.nvim_get_runtime_file("", true),
-                    },
-                    -- Do not send telemetry data containing a randomized but unique identifier
-                    telemetry = {
-                        enable = false
-                    },
+if M.executable('clangd') then
+    nvim_lsp.clangd.setup({
+        on_attach = custom_attach,
+        args = {
+            '--background-index',
+            '--std=c++20',
+            '--clang-tidy',
+            '--suggest-missing-includes',
+        },
+    })
+else 
+    vim.notify('clangd not found', vim.log.levels.WARN, {title = 'Nvim-config'})
+end
+
+if M.executable('lua-language-server') then
+    nvim_lsp.lua_ls.setup({
+        on_attach = custom_attach,
+        settings = {
+            Lua = {
+                runtime = {
+                    version = "LuaJIT",
+                },
+                diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = {'vim'},
+                },
+                workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+                -- Do not send telemetry data containing a randomized but unique identifier
+                telemetry = {
+                    enable = false
                 },
             },
-        })
-    elseif server.name == 'pylsp' then
-        nvim_lsp.pylsp.setup({
-            on_attach = custom_attach,
-        })
-    else
-        nvim_lsp[server.name].setup({
-            on_attach = custom_attach
-        })
-    end
+        },
+    })
+else
+    vim.notify('lua_ls not found', vim.log.levels.WARN, {title = 'Nvim-config'})
+end
+
+if M.executable('lua-language-server') then
+    nvim_lsp.pylsp.setup({
+        on_attach = custom_attach,
+    })
+else
+    vim.notify('pylsp not found', vim.log.levels.WARN, {title = 'Nvim-config'})
 end
