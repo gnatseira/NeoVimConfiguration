@@ -102,7 +102,7 @@ else
     vim.notify('lua_ls not found', vim.log.levels.WARN, {title = 'Nvim-config'})
 end
 
-if M.executable('lua-language-server') then
+if M.executable('pylsp') then
     nvim_lsp.pylsp.setup({
         on_attach = custom_attach,
     })
