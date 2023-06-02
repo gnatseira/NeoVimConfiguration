@@ -113,8 +113,6 @@ return require('packer').startup({function(use)
         config = [[require('config.treesitter')]]
     }
 
-    use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = 'nvim-treesitter'}
-
     use {
         'p00f/nvim-ts-rainbow',
         opt = true,
@@ -123,20 +121,11 @@ return require('packer').startup({function(use)
 
     use {'JoosepAlviste/nvim-ts-context-commentstring', opt = true, after = 'nvim-treesitter'}
 
-    use {'mfussenegger/nvim-ts-hint-textobject', opt = true, after = 'nvim-treesitter'}
-
     use {
         'andymass/vim-matchup',
         opt = true,
         after = 'nvim-treesitter',
         config = [[require('config.matchup')]]
-    }
-
-    use {
-        'windwp/nvim-ts-autotag',
-        opt = true,
-        after = 'nvim-treesitter',
-        config = [[require('config.autotag')]]
     }
 
     -- mason
