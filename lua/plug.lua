@@ -197,11 +197,11 @@ return require('packer').startup({function(use)
     use {'dstein64/vim-startuptime', opt = true, cmd = 'StartupTime'}
 
     -- filetype
-    use {
-        'nathom/filetype.nvim',
-        opt = false,
-        config = [[require('config.filetype')]]
-    }
+    -- use {
+    --     'nathom/filetype.nvim',
+    --     opt = false,
+    --     config = [[require('config.filetype')]]
+    -- }
 
     -- diffview
     use {
