@@ -1,5 +1,5 @@
 vim.cmd([[packadd sqlite.lua]])
-vim.cmd([[packadd telescope-fzf-native.nvim]])
+vim.cmd([[packadd telescope-fzy-native.nvim]])
 vim.cmd([[packadd telescope-project.nvim]])
 vim.cmd([[packadd telescope-frecency.nvim]])
 vim.cmd([[packadd telescope-zoxide]])
@@ -42,11 +42,9 @@ require("telescope").setup({
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     },
     extensions = {
-        fzf = {
-            fuzzy = false,
-            override_generic_sorter = true,
+        fzy_native = {
+            override_generic_sorter = false,
             override_file_sorter = true,
-            case_mode = "smart_case",
         },
         frecency = {
             show_scores = true,
@@ -64,7 +62,7 @@ require("telescope").setup({
     },
 })
 
-require('telescope').load_extension('fzf')
+require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("project")
 require("telescope").load_extension("zoxide")
 require("telescope").load_extension("frecency")
