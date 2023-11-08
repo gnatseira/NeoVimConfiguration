@@ -12,7 +12,6 @@ opt.fileencoding = 'utf8'
 -- [[ Theme ]]
 opt.syntax = "ON"
 opt.termguicolors = true  -- bool: If term supports ui color then enable
-cmd('colorscheme catppuccin')       -- cmd:  Set the colorscheme
 
 -- [[ Search ]]
 opt.ignorecase = true
