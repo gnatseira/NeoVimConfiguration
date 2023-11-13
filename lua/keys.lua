@@ -32,8 +32,8 @@ map('n', '<leader>fc', [[:Telescope colorscheme<CR>]], opt)
 map('n', '<leader>fn', [[:enew<CR>]], opt)
 
 -- bufferline
-map('n', '<C-o>', [[:BufferLineCycleNext<CR>]], opt)
-map('n', '<C-p>', [[:BufferLineCyclePrev<CR>]], opt)
+map('n', '<C-p>', [[:BufferLineCycleNext<CR>]], opt)
+map('n', '<C-o>', [[:BufferLineCyclePrev<CR>]], opt)
 map('n', '<C-a>', [[:BufferLinePickClose<CR>]], opt)
 map('n', '<C-s>', [[:BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>]], opt)
 
